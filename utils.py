@@ -1,10 +1,18 @@
-from models import Pessoas
+from models import Pessoas, Usuarios
 
 #INSERE DADOS NA TABELA pessoa
 def insere_pessoas():
     pessoa = Pessoas(nome='Paula', idade=42)
     print(pessoa)
     pessoa.save()
+
+def insere_usuario(login, senha):
+    usario = Usuarios(login=login, senha=senha)
+    usario.save()
+
+def consulta_usuarios():
+    usuarios = Usuarios.query.all()
+    print(usuarios)
 
 #CONSULTA DADOS NA TABELA pessoa
 def consulta_pessoas():
@@ -30,8 +38,8 @@ def exclui_pessoas():
 if __name__ == '__main__':
     #insere_pessoas()
     #altera_pessoas()
-
     #consulta_pessoas()
-
     #exclui_pessoas()
     consulta_pessoas()
+    #insere_usuario('pal', '123')
+    #consulta_usuarios()
